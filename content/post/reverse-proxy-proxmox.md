@@ -164,6 +164,8 @@ Feito todos os passos acima, já posso abrir o meu browser e digitar ```http://p
 
 **Outra observação:** Por se tratar de um certificado auto-assinado, no primeiro acesso teremos aquela puxada de orelha do browser informando que o certificado do site não é confiável. Normal.
 
-Olha só como ficou no browser.
+Olha só como ficou no browser. Bem melhor que digitar ```https://10.10.1.122:8006/```, hein.
 
-![pve.meudominio.local](/static/images/screenshot-dashboard-pve.png "Screenshot do dashboard do Proxmox VE")
+![pve.meudominio.local](https://raw.githubusercontent.com/ewerton-silva00/blog-sysadmin-linux/master/static/images/screenshot-dashboard-pve.png "Screenshot do dashboard do Proxmox VE")
+
+Aqui te mostrei o básico para criar um proxy reverso para acesso ao dashboard do Proxmox VE. Abraço!
