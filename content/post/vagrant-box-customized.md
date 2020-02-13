@@ -24,7 +24,7 @@ Para este artigo utilizei o seguinte:
 
 Vou iniciar passando logo um "pulo do gato" que é criar uma interface virtual no VirtualBox para termos comunicação direta com as VMs do Vagrant. Isso ajuda demais, porque não gosto de ficar mapeando portas quando posso ter acesso direto. Think about it!
 
-![Imagem 00](/archives/Blog/blog/static/images/00-screenshot-vagrant-box-customized.png "Interface vboxnet0 criada")
+![Imagem 00](https://raw.githubusercontent.com/ewerton-silva00/blog-sysadmin-linux/master/static/images/00-screenshot-vagrant-box-customized.png "Interface vboxnet0 criada")
 
 Nesse caso, criei uma interface virtual chamada **vboxnet0** com IP **10.10.10.1/24**, ou seja, quando eu provisionar qualquer VM no meu notebook dentro dessa faixa de rede terei acesso direto. Bom demais!
 
@@ -34,41 +34,41 @@ Aqui, criaremos uma máquina virtual mais crua possível para no final converter
 
 **Passo 00:** Atribuo um nome para a minha VM.
 
-![Imagem 01](/archives/Blog/blog/static/images/01-screenshot-vagrant-box-customized.png "Atribuindo um nome para a VM")
+![Imagem 01](https://raw.githubusercontent.com/ewerton-silva00/blog-sysadmin-linux/master/static/images/01-screenshot-vagrant-box-customized.png "Atribuindo um nome para a VM")
 
 **Passo 01:** Deixo a memória RAM em 512 MB.
 
-![Imagem 02](/archives/Blog/blog/static/images/02-screenshot-vagrant-box-customized.png "Memória RAM em 512 MB")
+![Imagem 02](https://raw.githubusercontent.com/ewerton-silva00/blog-sysadmin-linux/master/static/images/02-screenshot-vagrant-box-customized.png "Memória RAM em 512 MB")
 
 **Passo 02:** Seleciono a opção **Create a virtual hard disk now**.
 
-![Imagem 03](/archives/Blog/blog/static/images/03-screenshot-vagrant-box-customized.png "Opção Create a virtual hard disk now selecionada")
+![Imagem 03](https://raw.githubusercontent.com/ewerton-silva00/blog-sysadmin-linux/master/static/images/03-screenshot-vagrant-box-customized.png "Opção Create a virtual hard disk now selecionada")
 
 **Passo 03:** Marco a opção **VDI (VirtualBox Disk Image)**.
 
-![Imagem 04](/archives/Blog/blog/static/images/04-screenshot-vagrant-box-customized.png "Opçao VDI (VirtualBox Disk Image selecionada)")
+![Imagem 04](https://raw.githubusercontent.com/ewerton-silva00/blog-sysadmin-linux/master/static/images/04-screenshot-vagrant-box-customized.png "Opçao VDI (VirtualBox Disk Image selecionada)")
 
 **Passo 04**: Seleciono a opção **Dynamically allocated**.
 
-![Imagem 05](/archives/Blog/blog/static/images/05-screenshot-vagrant-box-customized.png "Opção Dynamically allocated selecionada")
+![Imagem 05](https://raw.githubusercontent.com/ewerton-silva00/blog-sysadmin-linux/master/static/images/05-screenshot-vagrant-box-customized.png "Opção Dynamically allocated selecionada")
 
 **Passo 05:** Aumento o tamanho do disco, de **8,00 GB** para **10,00 GB**.
 
-![Imagem 06](/archives/Blog/blog/static/images/06-screenshot-vagrant-box-customized.png "Aumentei o disco de 8,00 GB para 10,00 GB")
+![Imagem 06](https://raw.githubusercontent.com/ewerton-silva00/blog-sysadmin-linux/master/static/images/06-screenshot-vagrant-box-customized.png "Aumentei o disco de 8,00 GB para 10,00 GB")
 
 Após clicar em **Create** a VM estará pronta para "bootar" a imagem do sistema operacional, mas antes disso preciso de mais alguns passos.
 
 **Passo 06:** Desabilito a interface USB desmarcando a opção **Enable USB Controller**.
 
-![Imagem 07](/archives/Blog/blog/static/images/07-screenshot-vagrant-box-customized.png "Desabilitar a interface USB desmarcando a opçao Enable USB Controller")
+![Imagem 07](https://raw.githubusercontent.com/ewerton-silva00/blog-sysadmin-linux/master/static/images/07-screenshot-vagrant-box-customized.png "Desabilitar a interface USB desmarcando a opçao Enable USB Controller")
 
 **Passo 07:** Desabilito o áudio desmarcando a opção **Enable Audio**.
 
-![imagem 08](/archives/Blog/blog/static/images/08-screenshot-vagrant-box-customized.png "Desabilitar o áudio desmarcando a opçao Enable Audio")
+![imagem 08](https://raw.githubusercontent.com/ewerton-silva00/blog-sysadmin-linux/master/static/images/08-screenshot-vagrant-box-customized.png "Desabilitar o áudio desmarcando a opçao Enable Audio")
 
 **Passo 08:** Seleciono a ISO do CentOS que irei utilizar.
 
-![Imagem 09](/archives/Blog/blog/static/images/09-screenshot-vagrant-box-customized.png "ISO do CentOS selecionada para boot")
+![Imagem 09](https://raw.githubusercontent.com/ewerton-silva00/blog-sysadmin-linux/master/static/images/09-screenshot-vagrant-box-customized.png "ISO do CentOS selecionada para boot")
 
 
 
@@ -76,7 +76,7 @@ Após clicar em **Create** a VM estará pronta para "bootar" a imagem do sistema
 
 Após inicializar a VM, siga os passos convencionais de instalação, mas atenção para o particionamento do disco.
 
-![Imagem 10](/archives/Blog/blog/static/images/10-screenshot-vagrant-box-customized.png "Disco devidamente particionado")
+![Imagem 10](https://raw.githubusercontent.com/ewerton-silva00/blog-sysadmin-linux/master/static/images/10-screenshot-vagrant-box-customized.png "Disco devidamente particionado")
 
 Particionei da seguinte forma:
 
@@ -90,13 +90,13 @@ Utilizar LVM na **swap** e **/ [raiz]** nos permite futuramente aumentar o disco
 
 Concluo essa parte da seguinte forma:
 
-![Imagem 11](/archives/Blog/blog/static/images/11-screenshot-vagrant-box-customized.png "Status do Installation Summary")
+![Imagem 11](https://raw.githubusercontent.com/ewerton-silva00/blog-sysadmin-linux/master/static/images/11-screenshot-vagrant-box-customized.png "Status do Installation Summary")
 
 À seguir, chegamos nos passos de criar uma senha para o usuário **root** e criar um usuário à parte, na opção **User Creation**.
 
 Outro "pulo do gato" aqui é criar um usuário chamado **vagrant** com senha **vagrant** e permissão de **Administrator**. Ficando assim:
 
-![Imagem 12](/archives/Blog/blog/static/images/12-screenshot-vagrant-box-customized.png "Usuário vagrant criado")
+![Imagem 12](https://raw.githubusercontent.com/ewerton-silva00/blog-sysadmin-linux/master/static/images/12-screenshot-vagrant-box-customized.png "Usuário vagrant criado")
 
 Feito isso é só aguardar a conclusão da instalação do sistema operacional.
 
@@ -387,7 +387,7 @@ O resultado do comando acima precisa ser ```Vagrantfile validated successfully.`
 
 Já posso brincar com a Box executando o comando ```vagrant up```.
 
-![Imagem 13](/archives/Blog/blog/static/images/13-screenshot-vagrant-box-customized.png "Resultado do comando vagrant up")
+![Imagem 13](https://raw.githubusercontent.com/ewerton-silva00/blog-sysadmin-linux/master/static/images/13-screenshot-vagrant-box-customized.png "Resultado do comando vagrant up")
 
 O resultado só poderia ser sucesso. Muito bom.
 
