@@ -91,6 +91,8 @@ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/httpd/ssl/pve.k
 
 Preencha os campos solicitados, mas **atenção** na opção **Common Name**, pois ela precisa ser igual ao endereço que você pretende informar no browser. No meu caso, ```pve.meudominio.local```.
 
+> [Clique aqui](https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-apache-in-ubuntu-18-04-pt "Link de acesso a um tutorial no site da Digital Ocean") caso você tenha dúvidas sobre o processo acima de gerar o certificado auto-assinado.
+
 O resultado foi a criação de dois arquivos:
 
 ```bash
@@ -100,7 +102,7 @@ total 8
 -rw-r--r--. 1 root root 1704 Feb 11 23:57 pve.key
 ```
 
-Sensacional. Agora temos tudo pra criar o arquivo de Virtual Host.
+Sensacional. Agora temos tudo para criar o arquivo de Virtual Host.
 
 #### Criando o arquivo de Virtual Host ####
 
@@ -154,18 +156,24 @@ Crie o arquivo ```/etc/httpd/conf.d/pve.conf``` com o conteúdo abaixo.
     SSLHonorCipherOrder On
     
     SSLCertificateKeyFile /etc/httpd/ssl/pve.key
-    SSLCertificateFile /etc/https/ssl/pve.crt
+    SSLCertificateFile /etc/httpd/ssl/pve.crt
 </VirtualHost>
 ```
 
-**Observação:** No arquivo acima o IP ```10.10.1.122``` é o meu servidor Proxmox. Você precisa então substituir pelo IP do seu Proxmox.
+**Primeira Observação:** No arquivo acima o IP ```10.10.1.122``` é o meu servidor Proxmox. Você precisa então substituir pelo IP do seu Proxmox.
+
+**Segunda Observação:** O nome ```pve.meudominio.local``` está configurado no arquivo ```/etc/hosts``` do meu notebook. No seu caso o nome escolhido precisa estar em conformidade com o seu DNS público e/ou local.
 
 Feito todos os passos acima, já posso abrir o meu browser e digitar ```http://pve.meudominio.local``` que terei acesso ao dashboard do Proxmox com tudo funcional, inclusive **spice** e **websockets**.
 
-**Outra observação:** Por se tratar de um certificado auto-assinado, no primeiro acesso teremos aquela puxada de orelha do browser informando que o certificado do site não é confiável. Normal.
+**Terceira Observação:** Por se tratar de um certificado auto-assinado, no primeiro acesso teremos aquela puxada de orelha do browser informando que o certificado do site não é confiável. Normal.
 
 Olha só como ficou no browser. Bem melhor que digitar ```https://10.10.1.122:8006/```, hein.
 
 ![pve.meudominio.local](https://raw.githubusercontent.com/ewerton-silva00/blog-sysadmin-linux/master/static/images/screenshot-dashboard-pve.png "Screenshot do dashboard do Proxmox VE")
 
-Aqui te mostrei o básico para criar um proxy reverso para acesso ao dashboard do Proxmox VE. Abraço!
+Aqui te mostrei o básico para criar um proxy reverso utilizando o Apache HTTP Server num servidor CentOS 7.x.
+
+Se preciso for, o apache também pode ser instalado e configurado no próprio servidor do Proxmox, mas nesse caso mudam alguns dos passos acima, pois será trabalhado o pacote ```apache2``` num sistema operacional ```Debian```. Assunto para um próximo artigo.
+
+Espero que aproveite todo esse conteúdo. Abraço!
