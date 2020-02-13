@@ -1,5 +1,5 @@
 ---
-title: "Apache HTTP Server como proxy reverso para o Proxmox VE"
+title: "Apache HTTP Server como proxy reverso para o Proxmox VE e suporte ao noVNC"
 description: "Configurando um proxy reverso no apache para acesso ao dashboard do Proxmox VE"
 date: 2020-02-11T16:47:41-03:00
 draft: false
@@ -160,11 +160,27 @@ Crie o arquivo ```/etc/httpd/conf.d/pve.conf``` com o conteúdo abaixo.
 </VirtualHost>
 ```
 
+Execute o comando abaixo para verificar se o arquivo de Virtual Host criado está OK. Só pra garantir.
+
+```bash
+apachectl configtest
+```
+
+Retornando ```Syntax OK``` pode recarregar as cofigurações do apache com o comando abaixo.
+
+```bash
+systemctl reload httpd
+```
+
 **Primeira Observação:** No arquivo acima o IP ```10.10.1.122``` é o meu servidor Proxmox. Você precisa então substituir pelo IP do seu Proxmox.
 
 **Segunda Observação:** O nome ```pve.meudominio.local``` está configurado no arquivo ```/etc/hosts``` do meu notebook. No seu caso o nome escolhido precisa estar em conformidade com o seu DNS público e/ou local.
 
-Feito todos os passos acima, já posso abrir o meu browser e digitar ```http://pve.meudominio.local``` que terei acesso ao dashboard do Proxmox com tudo funcional, inclusive **spice** e **websockets**.
+Feito todos os passos acima, já posso abrir o meu browser e digitar ```http://pve.meudominio.local``` que terei acesso ao dashboard do Proxmox com tudo funcional, exceto o **spiceproxy**. Infelizmente.
+
+> O **spiceproxy** não funciona nesse modelo de Proxy Reverso que estamos trabalhando aqui, porque ele associa a porta **3128** ao host local.  Exemplo: ```proxy=http://pve.meudominio.local:3128```.
+>
+> Nesse caso, o **spiceproxy** funciona muito bem quando o Apache está em execução no mesmo host que o Proxmox.
 
 **Terceira Observação:** Por se tratar de um certificado auto-assinado, no primeiro acesso teremos aquela puxada de orelha do browser informando que o certificado do site não é confiável. Normal.
 
@@ -174,6 +190,6 @@ Olha só como ficou no browser. Bem melhor que digitar ```https://10.10.1.122:80
 
 Aqui te mostrei o básico para criar um proxy reverso utilizando o Apache HTTP Server num servidor CentOS 7.x.
 
-Se preciso for, o apache também pode ser instalado e configurado no próprio servidor do Proxmox, mas nesse caso mudam alguns dos passos acima, pois será trabalhado o pacote ```apache2``` num sistema operacional ```Debian```. Assunto para um próximo artigo.
+Se preciso for, o apache também pode ser instalado e configurado no próprio servidor do Proxmox, pois assim o **spiceproxy** funciona 100%, mas nesse caso mudam alguns dos passos acima, pois será trabalhado o pacote ```apache2``` num sistema operacional ```Debian```. Assunto para um próximo artigo.
 
 Espero que aproveite todo esse conteúdo. Abraço!
