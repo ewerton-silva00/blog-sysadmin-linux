@@ -3,7 +3,7 @@ title: "Criando sua própria Vagrant Box para o VirtualBox"
 description: "Passo à passo para criar sua Vagrant Box personalizada e executar no VirtualBox"
 author: "Ewerton Silva"
 date: 2020-02-12T12:41:18-03:00
-draft: true
+draft: false
 tags: ["vagrant"]
 categories: ["vagrant"]
 ---
