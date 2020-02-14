@@ -203,7 +203,7 @@ systemctl reload httpd
 
 Agora é só chamar no browser.
 
-![Imagem 00](/archives/Blog/blog/static/images/00-screenshot-private-vagrant-repository.png "Imagem com o resultado do funcionamento do repositorio no browser")
+![Imagem 00](https://raw.githubusercontent.com/ewerton-silva00/blog-sysadmin-linux/master/static/images/00-screenshot-private-vagrant-repository.png "Imagem com o resultado do funcionamento do repositorio no browser")
 
 
 
@@ -253,9 +253,9 @@ O resultado do comando acima precisa ser ```Vagrantfile validated successfully.`
 
 Agora é só executar o comando ```vagrant up```.
 
-Abaixo o resultado da execução do comando.
+Abaixo o resultado da execução do comando acima.
 
-![Imagem 01](/archives/Blog/blog/static/images/01-screenshot-private-vagrant-repository.png)
+![Imagem 01](https://raw.githubusercontent.com/ewerton-silva00/blog-sysadmin-linux/master/static/images/01-screenshot-private-vagrant-repository.png "Screenshot da execução do comando vagrant up")
 
 Só sucesso. Nas próximas execuções dessa Box não será mais necessário baixar a imagem do repositório, porque a Box já foi importada para o repositório local. Esse fluxo pode ser comparado as imagens Docker.
 
@@ -318,7 +318,7 @@ E o arquivo ```index.json``` ficará da seguinte forma:
 
 Quando chamo no browser obtenho o seguinte.
 
-![Imagem 02](/archives/Blog/blog/static/images/02-screenshot-private-vagrant-repository.png "Imagem com a visualização do repositório no brownser")
+![Imagem 02](https://raw.githubusercontent.com/ewerton-silva00/blog-sysadmin-linux/master/static/images/02-screenshot-private-vagrant-repository.png "Imagem com a visualização do repositório no brownser")
 
 O "pulo do gato" aqui é o valor boleano da linha abaixo...
 
