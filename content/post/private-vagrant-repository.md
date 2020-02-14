@@ -39,7 +39,7 @@ hostnamectl set-hostname vagrant-repo && bash
 10.10.10.10	vagrant-repo.meudominio.local vagrant-repo
 ```
 
-```10.10.10.10``` é o IP do meu servidor e ```meudominio.local``` é o domínio que estou utilizando para este artigo. Ajuste de acordo com o seu ambiente.
+```10.10.10.10``` é o IP do meu servidor, ```vagrant-repo``` é o nome do servidor e ```meudominio.local``` é o domínio que estou utilizando para este artigo. Ajuste de acordo com o seu ambiente.
 
 - Ajustar minhas configurações de localidades.
 
@@ -47,7 +47,7 @@ hostnamectl set-hostname vagrant-repo && bash
 localectl set-locale LANG=pt_BR.UTF-8
 ```
 
-- Garantir que o meu timezone está correto.
+- Garantir que o meu timezone esteja correto.
 
 ```bash
 timedatectl set-timezeon "America/Recife"
@@ -71,7 +71,7 @@ Tudo certo. Agora posso continuar tranquilo.
 
 #### Criando a estrutura de diretórios necessária ####
 
-Preciso criar uma estrutura de diretórios na qual seja possível versionar de forma organizada as Boxes posteriormente.
+Preciso criar uma estrutura de diretórios na qual seja possível versionar posteriormente as Boxes de forma organizada.
 
 ```bash
 mkdir -p /var/www/html/vagrant/boxes
@@ -141,7 +141,7 @@ Como só tenho uma Box no repositório até então, o arquivo ficará da seguint
 }
 ```
 
-> Perceba que acima, no campo **url**, utilizei o DNS ```repo.meudominio.local``` e não ```vagrant-repo.meudominio.local```, que é o nome do servidor. Gosto de trabalhar assim. Utilizarei esse nome mais na frente, na criação do Virtual Host.
+> Perceba que acima, no campo **url**, utilizei o DNS ```repo.meudominio.local``` e não ```vagrant-repo.meudominio.local```, que é o nome do servidor. Gosto e acho importante trabalhar assim. Utilizarei esse nome mais na frente, na criação do Virtual Host.
 >
 > Com isso o nome ```repo.meudominio.local``` é um ```CNAME``` para ```vagrant-repo.meudominio.local```.
 >
@@ -209,7 +209,7 @@ Agora é só chamar no browser.
 
 #### Baixando e executando a Box a partir do Vagrantfile ####
 
-Para validar se ficou tudo OK mesmo, basta eu criar um Vagrantfile abaixo.
+Para validar se ficou tudo OK mesmo, basta eu criar o Vagrantfile abaixo.
 
 ```bash
 # -*- mode: ruby -*-
@@ -243,7 +243,7 @@ Vagrant.configure("2") do |config|
 end
 ```
 
-Executo uma teste de validação de sintaxe. Importante.
+Executo um teste de validação de sintaxe. Importante.
 
 ```bash
 vagrant validate
@@ -257,15 +257,15 @@ Abaixo o resultado da execução do comando acima.
 
 ![Imagem 01](https://raw.githubusercontent.com/ewerton-silva00/blog-sysadmin-linux/master/static/images/01-screenshot-private-vagrant-repository.png "Screenshot da execução do comando vagrant up")
 
-Só sucesso. Nas próximas execuções dessa Box não será mais necessário baixar a imagem do repositório, porque a Box já foi importada para o repositório local. Esse fluxo pode ser comparado as imagens Docker.
+Só sucesso. Nas próximas execuções dessa Box não será mais necessário baixar a imagem do repositório, porque a Box já foi importada para o repositório local. Esse fluxo pode ser comparado a trabalhar com imagens Docker.
 
 
 
 #### Versionando as Boxes ####
 
-Então, para versionar as Boxes é simples, basta seguir o mesmo fluxo que fiz neste artigo, porém, acrescentar mais um subdiretório com a nova versão da Boxe e acrescentar.
+Então, para versionar as Boxes é simples, basta seguir o mesmo fluxo que fiz neste artigo, porém, acrescentando os subdiretórios das versões que irão surgindo.
 
-Digamos que precisei adicionar o serviço ```ntpd``` na Box, para quando alguém baixar e executar o serviço já esteja instalado e devidamente configurado. Sendo assim, seguindo a regra do ```Versionamento Semântico``` a imagem será versionada como ```20200213.1.0```. Lembre-se que falei dessa nomenclatura mais acima.
+Digamos que precisei adicionar o serviço ```ntpd``` na Box, para quando alguém baixar e executar a Box o serviço já esteja instalado e devidamente configurado. Sendo assim, seguindo a regra do ```Versionamento Semântico``` a imagem será versionada como ```20200213.1.0```. Lembre-se de que falei dessa nomenclatura mais acima.
 
 A estrutura de diretórios agora está da seguinte forma:
 
@@ -314,11 +314,11 @@ E o arquivo ```index.json``` ficará da seguinte forma:
 }
 ```
 
-> É normal que a partir do momento em que vamos incrementando dados no arquivo ```index.json``` os requisitos de abrir e fechar ```}``` e ```]``` fiquem confusos. Para checar a sintaxe, utilizo um serviço web sensacional chamado [JSON formatter & Validator](https://jsonformatter.curiousconcept.com/# "Link de acesso ao site do serviço mencionado") que fazer um lint detalhado no conteúdo do arquivo JSON
+> É normal que a partir do momento em que vamos incrementando dados no arquivo ```index.json``` os requisitos de abrir e fechar ```}``` e ```]``` fiquem confusos. Para checar a sintaxe, utilizo um serviço web sensacional chamado [JSON formatter & Validator](https://jsonformatter.curiousconcept.com/# "Link de acesso ao site do serviço mencionado") que faz um lint detalhado no conteúdo do arquivo JSON
 
 Quando chamo no browser obtenho o seguinte.
 
-![Imagem 02](https://raw.githubusercontent.com/ewerton-silva00/blog-sysadmin-linux/master/static/images/02-screenshot-private-vagrant-repository.png "Imagem com a visualização do repositório no brownser")
+![Imagem 02](https://raw.githubusercontent.com/ewerton-silva00/blog-sysadmin-linux/master/static/images/02-screenshot-private-vagrant-repository.png "Imagem com a visualização do repositório no browser")
 
 O "pulo do gato" aqui é o valor boleano da linha abaixo...
 
@@ -326,7 +326,7 @@ O "pulo do gato" aqui é o valor boleano da linha abaixo...
 centos.vm.box_check_update = true
 ```
 
-... que por estar ```true``` fará com que o Vagrantfile, no momento da execução do ```vagrant up```, busque no repositório por atualizações e quando houver irá automaticamente executar o download da Box.
+... que por estar ```true``` fará com que o Vagrant, no momento da execução do ```vagrant up```, busque no repositório por atualizações e quando houver irá automaticamente executar o download da Box.
 
 Missão cumprida. Analise se essa solução é útil pra você e em caso positivo desejo bom uso.
 
