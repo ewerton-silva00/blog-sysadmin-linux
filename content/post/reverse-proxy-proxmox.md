@@ -6,6 +6,7 @@ draft: false
 author: "Ewerton Silva"
 tags: ["proxmox","apache","dicas"]
 categories: ["proxmox"]
+comments: "true"
 ---
 
 Quem me conhece sabe que gosto demais do Proxmox Virtual Environment (PVE para os íntimos), porque ele proporciona uma plataforma completa de virtualização de máquinas virtuais de forma simples, robusta e OpenSource, garantindo inclusive suporte para uma arquitetura de Virtualização Hiperconvergente. [Clique aqui](https://www.proxmox.com/en/proxmox-ve "Link para o site oficial do Proxmox VE") para saber mais sobre PVE. 

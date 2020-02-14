@@ -6,6 +6,7 @@ date: 2020-02-12T12:41:18-03:00
 draft: false
 tags: ["vagrant"]
 categories: ["vagrant"]
+comments: "true"
 ---
 
 [Vagrant](https://www.vagrantup.com/ "Link de acesso ao site oficial do Vagrant") e [VirtualBox](https://www.virtualbox.org/ "Link de acesso ao site oficial do VirtualBox"), nunca vi tecnologias ser tão amadas, mas também tão odiadas ao mesmo tempo. Falo isso, porque sou "rato" de blog técnico, gosto demais de ficar lendo os artigos que a turma publica e isso me fez perceber que o pessoal reclama muito do Vagrant e do VirtualBox, o primeiro por ser uma tecnologia de provisionamento de máquinas virtuais, sendo que o hype é containers, infraestrutura imutável e afins e o segundo, porque apresenta muitos problemas até em ambientes de estudos.
