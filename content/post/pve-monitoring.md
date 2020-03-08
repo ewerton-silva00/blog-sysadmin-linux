@@ -281,7 +281,17 @@ Acesse o endereço ```grafana.meudominio.local```, informe ```grafana``` como us
 
 Na sequência importe o dashboard ```pve_monitoring.json``` disponível como arquivo no repositório baixado.
 
+Com isso temos o seguinte:
 
+![Imagem 00](https://raw.githubusercontent.com/ewerton-silva00/blog-sysadmin-linux/master/static/images/00-screenshot-pve-monitoring.png "Visão do PVE Node")
+
+
+
+![Imagen 01](https://raw.githubusercontent.com/ewerton-silva00/blog-sysadmin-linux/master/static/images/01-screenshot-pve-monitoring.png "Visão dos Guests")
+
+
+
+![Imagen 02](https://raw.githubusercontent.com/ewerton-silva00/blog-sysadmin-linux/master/static/images/02-screenshot-pve-monitoring.png "Visão da utilizaçao de recursos dos guests")
 
 Chegamos então no fim deste artigo. Agora você já possui o norte que faltava para desenvolver uma stack de monitoração.
 
