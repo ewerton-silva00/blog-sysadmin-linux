@@ -9,7 +9,7 @@ categories: ["vagrant"]
 comments: "true"
 ---
 
-No [artigo anterior](http://localhost:1313/post/vagrant-box-customized/ "Link de acesso ao artigo anterior") demonstrei passo à passo como criar suas próprias Vagrant Boxes, do zero até a execução. Ficou bem interessante.
+No [artigo anterior](https://ewerton-silva00.github.io/post/vagrant-box-customized/ "Link de acesso ao artigo anterior") demonstrei passo à passo como criar suas próprias Vagrant Boxes, do zero até a execução. Ficou bem interessante.
 
 Neste artigo quero te mostrar como criar um repositório privado pra você publicar suas Boxes de forma controlada.
 
